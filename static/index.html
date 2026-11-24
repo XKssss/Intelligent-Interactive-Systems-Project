@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RepairAgent &mdash; Multimodal Repair Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>RepairAgent</h1>
+      <p class="subtitle">A repair-aware multimodal conversational agent &mdash; referential block-world task</p>
+    </div>
+    <div class="topbar-actions">
+      <span id="status-pill" class="pill">Ready</span>
+      <button id="btn-transcript" type="button">Transcript</button>
+      <button id="btn-reset" type="button">Reset</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Scene: deictic (pointing / gaze) channel -->
+    <section class="card scene-card">
+      <div class="card-head">
+        <h2>Block world</h2>
+        <div class="modality-toggle" role="group" aria-label="Deictic modality">
+          <button id="mode-point" class="toggle active" type="button">Point</button>
+          <button id="mode-gaze" class="toggle" type="button">Gaze</button>
+        </div>
+      </div>
+      <p class="hint">Click an object to point at it. During a clarification, clicking answers immediately.</p>
+      <div id="scene" class="scene" aria-label="Block world scene"></div>
+      <div id="deictic-chip" class="deictic-chip hidden"></div>
+    </section>
+
+    <!-- Conversation: verbal channel -->
+    <section class="card chat-card">
+      <div class="card-head"><h2>Conversation</h2></div>
+      <div id="chat" class="chat" aria-live="polite"></div>
+      <div class="input-row">
+        <button id="btn-mic" class="mic" type="button" title="Voice input" aria-label="Voice input">&#127908;</button>
+        <input id="utterance" type="text" placeholder="Type or speak, e.g. select the big red cube"
+               autocomplete="off">
+        <button id="btn-send" type="button">Send</button>
+      </div>
+    </section>
+
+    <!-- Inspectable system understanding -->
+    <section class="card state-card">
+      <div class="card-head"><h2>System understanding</h2></div>
+      <div id="understanding" class="understanding">
+        <p class="muted">No interpretation yet. Send a command to see what the agent senses and infers.</p>
+      </div>
+      <h3 class="log-head">Repair history</h3>
+      <ol id="repair-log" class="repair-log"></ol>
+    </section>
+  </main>
+
+  <footer class="boundary">
+    <strong>Autonomy boundary:</strong>
+    <span id="boundary-text">Select/move actions run only for a single resolved referent; ambiguous or low-confidence interpretations return to the user, and every action can be undone.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
