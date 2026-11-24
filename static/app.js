@@ -13,6 +13,11 @@ let deicticModality = "point";        // toggle between point and gaze
 let awaitingClarification = false;
 let blockLabels = {};
 
+const FILL_COLORS = {
+  red: "#dc2626", blue: "#2563eb", green: "#16a34a",
+  yellow: "#ca8a04", white: "#f9fafb", black: "#111827",
+};
+
 // ------------------------------------------------------------------ API
 async function api(path, options = {}) {
   const response = await fetch(path, {
@@ -40,6 +45,8 @@ function renderScene(state) {
     el.title = `${block.id}: ${block.size} ${block.color} ${block.shape}`;
     el.dataset.id = block.id;
     el.textContent = block.id;
+    el.style.background = FILL_COLORS[block.color] || "#6b7280";
+    if (block.color === "white") el.style.color = "#1f2937";
     const tag = document.createElement("span");
     tag.className = "tag";
     tag.textContent = block.label;
