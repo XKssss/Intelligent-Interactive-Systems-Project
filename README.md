@@ -1,6 +1,6 @@
 # RepairAgent
 
-**README prose word count: 401** (excluding headings, code and setup commands)
+**README prose word count: 447** (excluding headings, code and setup commands)
 
 ## Project status
 
@@ -58,10 +58,14 @@ python demo_walkthrough.py
 
 ## AI assistance
 
-AI was used to help draft and refactor code and to prepare this README. Every
-generated component was reviewed, run locally and corrected, including the
-repair classification logic and the planner flow. The design choices, claims and
-references are the author's responsibility.
+The author personally designed the architecture, wrote the core modules and
+implemented the interaction logic, including the repair state machine, the
+planner flow and the web interface. AI was used only for auxiliary support:
+refactoring and adjusting code that the author had already written, helping
+polish this README and checking wording. Every AI suggestion was reviewed, run
+and either corrected or rejected by the author, who also executed the test suite
+and the walkthrough to verify the behaviour. The design choices, claims and
+references are entirely the author's responsibility.
 
 ## API keys and additional files
 
